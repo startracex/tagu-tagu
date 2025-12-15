@@ -27,4 +27,23 @@ describe(ForMap, () => {
 			"Last",
 		]);
 	});
+
+	it("order is conserved: [For, For, Node]", () => {
+		const items1 = useState([1, 2, 3]);
+		const items2 = useState([-1, -2]);
+		const element = Div([
+			For(items1, (item) => Div([`${item}`])),
+			For(items2, (item) => Div([`${item}`])),
+			Div(["Last"]),
+		]);
+		items1.set([1, 2, 3]);
+		expect([...element.childNodes].map((c) => c.textContent)).toEqual([
+			"1",
+			"2",
+			"3",
+			"-1",
+			"-2",
+			"Last",
+		]);
+	});
 });

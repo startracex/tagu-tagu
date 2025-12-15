@@ -65,6 +65,7 @@ export class ForMap<T> extends ControlFlow {
 			for (const model of this.list.get()) {
 				element.insertBefore(model2View.get(model)!, next);
 			}
+			this.firstNode = model2View.get(this.list.get()[0]) ?? null;
 		};
 
 		updateListUI();
