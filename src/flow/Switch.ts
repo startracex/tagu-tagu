@@ -1,4 +1,4 @@
-import { Div } from "../Elements";
+import { getNextNodeSibling } from "../initializeChildBlock";
 import type { State } from "../State";
 import { ControlFlow } from "./ControlFlow";
 import type { SwitchSection } from "./SwitchBlockState";
@@ -38,22 +38,17 @@ export class SwitchFlow<T> extends ControlFlow {
 		const update = () => {
 			const value = this.#value.get();
 			const section = value2Section.get(value);
+			const nextNode = getNextNodeSibling(this);
 
 			// If element is not created yet, create and cache
 			if (!value2Element.has(value)) {
-				const newElement =
-					section?.show() ??
-					this.#createDefault?.() ??
-					Div({ css: { display: "none" } }, ["Test"]);
-				value2Element.set(value, newElement);
+				const newElement = section?.show() ?? this.#createDefault?.();
+				newElement && value2Element.set(value, newElement);
 			}
 
-			const newElement = value2Element.get(value)!;
-			if (currentElement) {
-				element.replaceChild(newElement, currentElement);
-			} else {
-				element.appendChild(newElement);
-			}
+			const newElement = value2Element.get(value);
+			currentElement?.remove();
+			newElement && element.insertBefore(newElement, nextNode);
 			currentElement = newElement;
 		};
 
