@@ -1,4 +1,4 @@
-import { getNextNodeSibling } from "../initializeChildBlock";
+import { getNextNodeSiblingVirtual } from "../initializeChildBlock";
 import type { State } from "../State";
 import { ControlFlow } from "./ControlFlow";
 
@@ -31,7 +31,7 @@ export class IfFlow extends ControlFlow {
 
 		const update = () => {
 			// next node might not be added to parent on init process
-			const nextInVirtual = getNextNodeSibling(this);
+			const nextInVirtual = getNextNodeSiblingVirtual(this);
 			const next = nextInVirtual?.parentElement ? nextInVirtual : null;
 
 			if (this.#condition.get()) {

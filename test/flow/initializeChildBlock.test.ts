@@ -3,7 +3,7 @@ import { Div, useState } from "../../src";
 import { ControlFlow } from "../../src/flow/ControlFlow";
 import {
 	connectNeighbours,
-	getNextNodeSibling,
+	getNextNodeSiblingVirtual,
 	resolveTextNode,
 } from "../../src/initializeChildBlock";
 
@@ -45,18 +45,18 @@ describe(connectNeighbours, () => {
 	});
 });
 
-describe(getNextNodeSibling, () => {
+describe(getNextNodeSiblingVirtual, () => {
 	it("null", () => {
 		const children = [new ControlFlowMock()];
 		connectNeighbours(children);
-		const actual = getNextNodeSibling(children[0] as ControlFlow);
+		const actual = getNextNodeSiblingVirtual(children[0] as ControlFlow);
 		expect(actual).toBe(null);
 	});
 
 	it("Node", () => {
 		const children = [new ControlFlowMock(), Div()];
 		connectNeighbours(children);
-		const actual = getNextNodeSibling(children[0] as ControlFlow);
+		const actual = getNextNodeSiblingVirtual(children[0] as ControlFlow);
 		expect(actual).toBe(children[1]);
 	});
 
@@ -67,14 +67,14 @@ describe(getNextNodeSibling, () => {
 			Div(),
 		];
 		connectNeighbours(children);
-		const actual = getNextNodeSibling(children[0] as ControlFlow);
+		const actual = getNextNodeSiblingVirtual(children[0] as ControlFlow);
 		expect(actual).toBe((children[1] as ControlFlow).nodes[0]);
 	});
 
 	it("ControlFlow without nodes", () => {
 		const children = [new ControlFlowMock(), new ControlFlowMock(), Div()];
 		connectNeighbours(children);
-		const actual = getNextNodeSibling(children[0] as ControlFlow);
+		const actual = getNextNodeSiblingVirtual(children[0] as ControlFlow);
 		expect(actual).toBe(children[2]);
 	});
 });
