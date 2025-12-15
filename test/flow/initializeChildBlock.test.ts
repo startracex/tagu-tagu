@@ -34,7 +34,6 @@ describe(connectNeighbours, () => {
 		const children = [new ControlFlowMock(), Div()];
 		connectNeighbours(children);
 		assert(children[0] instanceof ControlFlow);
-		expect(children[0].prev).toBe(null);
 		expect(children[0].next).toBe(children[1]);
 	});
 
@@ -42,7 +41,6 @@ describe(connectNeighbours, () => {
 		const children = [Div(), new ControlFlowMock()];
 		connectNeighbours(children);
 		assert(children[1] instanceof ControlFlow);
-		expect(children[1].prev).toBe(children[0]);
 		expect(children[1].next).toBe(null);
 	});
 });

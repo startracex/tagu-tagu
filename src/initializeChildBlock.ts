@@ -37,7 +37,6 @@ export function connectNeighbours(children: (Node | ControlFlow)[]) {
 	for (let i = 0; i < children.length; i++) {
 		const child = children[i];
 		if (child instanceof ControlFlow) {
-			child.prev = children[i - 1] ?? null;
 			child.next = children[i + 1] ?? null;
 		}
 	}
