@@ -47,7 +47,7 @@ export function getNextNodeSiblingVirtual(flow: ControlFlow) {
 	if (next === null) return null;
 	if (next instanceof Node) return next;
 
-	if (next.nodes[0]) return next.nodes[0];
+	if (next.firstNode) return next.firstNode;
 	return getNextNodeSiblingVirtual(next);
 }
 

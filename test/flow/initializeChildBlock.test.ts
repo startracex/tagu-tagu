@@ -25,7 +25,7 @@ describe(resolveTextNode, () => {
 class ControlFlowMock extends ControlFlow {
 	constructor(children: Node[] = []) {
 		super();
-		this.nodes = children;
+		this.firstNode = children[0] ?? null;
 	}
 	run(_: Element) {}
 }
@@ -68,7 +68,7 @@ describe(getNextNodeSiblingVirtual, () => {
 		];
 		connectNeighbours(children);
 		const actual = getNextNodeSiblingVirtual(children[0] as ControlFlow);
-		expect(actual).toBe((children[1] as ControlFlow).nodes[0]);
+		expect(actual).toBe((children[1] as ControlFlow).firstNode);
 	});
 
 	it("ControlFlow without nodes", () => {

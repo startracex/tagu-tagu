@@ -35,13 +35,13 @@ export class IfFlow extends ControlFlow {
 			if (this.#condition.get()) {
 				if (!child) child = this.#createThen();
 
-				this.nodes = [child];
+				this.firstNode = child;
 				elseChild?.remove();
 				element.insertBefore(child, next);
 			} else {
 				if (!elseChild) elseChild = this.#createElse?.();
 
-				this.nodes = [elseChild].filter((n) => n) as Element[];
+				this.firstNode = elseChild ?? null;
 				child?.remove();
 				elseChild && element.insertBefore(elseChild, next);
 			}

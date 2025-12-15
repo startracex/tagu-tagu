@@ -1,6 +1,6 @@
 export abstract class ControlFlow {
 	next: ControlFlow | Node | null = null;
-	nodes = [] as Node[];
+	firstNode: Node | null = null;
 
 	abstract run(element: Element): void;
 }
