@@ -18,4 +18,23 @@ describe("data", () => {
 		);
 		assert.equal(theme, "dark");
 	});
+
+	it("get data from parent", () => {
+		let theme: string | undefined;
+		Div(
+			{
+				data: { theme: "dark" },
+			},
+			[
+				Div({
+					data: {
+						theme: (value: string) => {
+							theme = value;
+						},
+					},
+				}),
+			],
+		);
+		assert.equal(theme, "dark");
+	});
 });
