@@ -23,7 +23,10 @@ export class NodeData {
 	resolveDataCallback(element: Element, child: Node) {
 		for (const key in this.node2DataCallbacks.get(child)) {
 			const callback = this.node2DataCallbacks.get(child)![key];
-			callback(this.node2Data.get(element)?.[key]);
+			const data = this.node2Data.get(element)?.[key];
+			if (data !== undefined) {
+				callback(data);
+			}
 		}
 	}
 }
