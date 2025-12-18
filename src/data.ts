@@ -67,29 +67,34 @@ export function initializeData(element: Element, data: DataRecord | undefined) {
 	}
 }
 
-export function extractCallbackRecord(record: DataRecord | undefined) {
-	if (!record) return;
-
-	const result = {} as Record<string, (value: any) => void>;
-	for (const key in record) {
-		const value = record[key];
-		if (typeof value === "function") {
-			result[key] = value;
-		}
-	}
-
-	if (!Object.keys(result).length) return;
-
-	return result;
+export function extractCallbackRecord(
+	record: DataRecord | undefined,
+): Record<string, () => void> | undefined {
+	return extractRecordFromDataRecord(
+		record,
+		(value) => typeof value === "function",
+	);
 }
 
-export function extractDataValueRecord(record: DataRecord | undefined) {
+export function extractDataValueRecord(
+	record: DataRecord | undefined,
+): Record<string, any> | undefined {
+	return extractRecordFromDataRecord(
+		record,
+		(value) => typeof value !== "function",
+	);
+}
+
+function extractRecordFromDataRecord(
+	record: DataRecord | undefined,
+	predicate: (value: any) => boolean,
+) {
 	if (!record) return;
 
-	const result = {} as Record<string, (value: any) => void>;
+	const result = {} as Record<string, any>;
 	for (const key in record) {
 		const value = record[key];
-		if (typeof value !== "function") {
+		if (predicate(value)) {
 			result[key] = value;
 		}
 	}
