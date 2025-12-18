@@ -7,7 +7,7 @@ export function If(
 	condition: State<boolean>,
 	show: () => Element,
 	showElse?: () => Element,
-) {
+): ControlFlow {
 	return new IfFlow(condition, show, showElse);
 }
 export class IfFlow extends ControlFlow {

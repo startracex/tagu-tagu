@@ -8,7 +8,7 @@ export function Switch<T>(
 	value: State<T>,
 	sections: SwitchSection<T>[],
 	createDefault?: () => Element,
-) {
+): ControlFlow {
 	return new SwitchFlow(value, sections, createDefault);
 }
 export class SwitchFlow<T> extends ControlFlow {

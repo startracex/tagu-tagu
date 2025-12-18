@@ -6,7 +6,7 @@ import { ControlFlow } from "./ControlFlow";
 export function For<T>(
 	array: State<readonly T[]>,
 	map: (value: T) => Node | string,
-) {
+): ControlFlow {
 	return new ForMap(array, map);
 }
 
