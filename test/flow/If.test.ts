@@ -5,10 +5,10 @@ describe(IfFlow, () => {
 	it("[Div, If, If]", () => {
 		const conditions = [useState(true), useState(false)];
 		const children = [
-			Div(["1"]),
-			If(conditions[0], () => Div(["2"])),
-			If(conditions[1], () => Div(["3"])),
-			Div(["4"]),
+			Div("1"),
+			If(conditions[0], () => Div("2")),
+			If(conditions[1], () => Div("3")),
+			Div("4"),
 		];
 		const element = Div(children);
 		conditions[0].set(false);
