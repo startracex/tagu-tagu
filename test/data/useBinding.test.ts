@@ -44,4 +44,20 @@ describe("useBinding", () => {
 		theme.set("light");
 		expect(child.textContent).toBe("Light");
 	});
+
+	it("attr, State", () => {
+		const theme = useState("dark");
+
+		const child = Div({
+			attr: {
+				class: useBinding("theme", (theme) =>
+					theme === "dark" ? "dark-mode" : "light-mode",
+				),
+			},
+		});
+		Div({ data: { theme } }, [child]);
+		expect(child.classList.toString()).toBe("dark-mode");
+		theme.set("light");
+		expect(child.classList.toString()).toBe("light-mode");
+	});
 });

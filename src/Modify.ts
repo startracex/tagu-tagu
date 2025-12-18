@@ -25,7 +25,7 @@ type $Record = Record<
 type ElementPropertyInitializer<TEventType2Event> = {
 	html?: string | State;
 	text?: string | State | Binding;
-	attr?: Record<string, string | State>;
+	attr?: Record<string, string | State | Binding>;
 	prop?: Record<string, any | State>;
 	css?: Record<string, string | State | Binding>;
 	on?: EventListenerRecord<TEventType2Event>;
@@ -114,11 +114,11 @@ function initializeStyle(
 
 function initializeAttributes(
 	element: Element,
-	attr: Record<string, string | State> | undefined,
+	attr: Record<string, string | State | Binding> | undefined,
 ) {
 	for (const attrName in attr) {
 		const value = attr[attrName];
-		applyStringOrState(value, (text) => {
+		applyStringOrStateOrBinding(element, value, (text) => {
 			if (!text) element.removeAttribute(attrName);
 			else {
 				element.setAttribute(attrName, text);
