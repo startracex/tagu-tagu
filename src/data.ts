@@ -36,16 +36,7 @@ export class NodeData {
 			callbacksRecord: Record<string, DataCallback[]>,
 		) => {
 			const dataRecord = this.node2Data.get(ancestor);
-
-			for (const key in dataRecord) {
-				if (key in callbacksRecord) {
-					for (const callback of callbacksRecord[key]) {
-						callback(dataRecord[key]);
-					}
-
-					delete callbacksRecord[key];
-				}
-			}
+			resolveCallbacksByData(callbacksRecord, dataRecord);
 
 			// Callbacks resolved
 			if (!Object.keys(callbacksRecord).length) return;
@@ -74,6 +65,25 @@ export class NodeData {
 		Node,
 		Record<string, DataCallback[]>
 	>();
+}
+
+/**
+ * Resolve callbacks.
+ * Resolved keys are deleted
+ */
+function resolveCallbacksByData(
+	callbacksRecord: Record<string, DataCallback[]>,
+	dataRecord: Record<string, any> | undefined,
+) {
+	for (const key in dataRecord) {
+		if (key in callbacksRecord) {
+			for (const callback of callbacksRecord[key]) {
+				callback(dataRecord[key]);
+			}
+
+			delete callbacksRecord[key];
+		}
+	}
 }
 
 export type DataRecord = Record<string, DataCallback | any>;
