@@ -122,7 +122,7 @@ export function form(...initializers: ElementInitializer<HTMLFormElement>[]) {
 	return Html("form", ...initializers);
 }
 
-export function Table(...initializers: ElementInitializer<HTMLTableElement>[]) {
+export function table(...initializers: ElementInitializer<HTMLTableElement>[]) {
 	return Html("table", ...initializers);
 }
 
