@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { Button, Input, Modify, useState } from "../../src";
+import { button, Input, Modify, useState } from "../../src";
 
 describe(Input, () => {
 	it("checkbox", () => {
@@ -68,7 +68,7 @@ describe(Input, () => {
 				attr: { value },
 				on: { input: updateValue },
 			}),
-			Button("clear", {
+			button("clear", {
 				on: { click: clearValue },
 			}),
 		]);

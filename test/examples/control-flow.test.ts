@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { Button, FlexDiv, Input, Span } from "../../src/Elements";
+import { button, FlexDiv, Input, Span } from "../../src/Elements";
 import { If } from "../../src/flow/If";
 import { Switch } from "../../src/flow/Switch";
 import { Modify } from "../../src/Modify";
@@ -57,10 +57,10 @@ describe("control-flow", () => {
 		);
 
 		Modify(document.body, { html: "" }, [
-			Button("Triangle", { on: { click: () => state.set("triangle") } }),
-			Button("Rectangle", { on: { click: () => state.set("rectangle") } }),
-			Button("Circle", { on: { click: () => state.set("circle") } }),
-			Button("Pentagon", { on: { click: () => state.set("pentagon") } }),
+			button("Triangle", { on: { click: () => state.set("triangle") } }),
+			button("Rectangle", { on: { click: () => state.set("rectangle") } }),
+			button("Circle", { on: { click: () => state.set("circle") } }),
+			button("Pentagon", { on: { click: () => state.set("pentagon") } }),
 			Switch(
 				state,
 				[

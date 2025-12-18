@@ -1,11 +1,11 @@
 import { describe, it } from "vitest";
-import { Button, FlexDiv, Span, Style } from "../../src/Elements";
+import { button, FlexDiv, Span, Style } from "../../src/Elements";
 import { Modify } from "../../src/Modify";
 import { FromStates, useState } from "../../src/State";
 
 describe("getting started", () => {
 	it("add button", () => {
-		Modify(document.body, { html: "" }, [Button("Click me!")]);
+		Modify(document.body, { html: "" }, [button("Click me!")]);
 	});
 	it("counter", () => {
 		const count = useState(4);
@@ -18,9 +18,9 @@ describe("getting started", () => {
 		}
 
 		Modify(document.body, { html: "" }, [
-			Button("-", { on: { click: decrementCount } }),
+			button("-", { on: { click: decrementCount } }),
 			Span(count),
-			Button("+", { on: { click: incrementCount } }),
+			button("+", { on: { click: incrementCount } }),
 		]);
 	});
 	it("State can be assigned as css value", () => {
@@ -30,9 +30,9 @@ describe("getting started", () => {
 			FlexDiv({
 				css: { width: "300px", height: "300px", background: background },
 			}),
-			Button("red", { on: { click: () => background.set("red") } }),
-			Button("green", { on: { click: () => background.set("green") } }),
-			Button("blue", { on: { click: () => background.set("blue") } }),
+			button("red", { on: { click: () => background.set("red") } }),
+			button("green", { on: { click: () => background.set("green") } }),
+			button("blue", { on: { click: () => background.set("blue") } }),
 		]);
 	});
 
@@ -40,8 +40,8 @@ describe("getting started", () => {
 		const background = useState("small" as "small" | "large");
 
 		Modify(document.body, { html: "" }, [
-			Button("small", { on: { click: () => background.set("small") } }),
-			Button("large", { on: { click: () => background.set("large") } }),
+			button("small", { on: { click: () => background.set("small") } }),
+			button("large", { on: { click: () => background.set("large") } }),
 			FlexDiv(
 				{
 					attr: {
@@ -80,8 +80,8 @@ describe("getting started", () => {
 			FlexDiv({
 				text: count,
 			}),
-			Button("-", { on: { click: decrementCount } }),
-			Button("+", { on: { click: incrementCount } }),
+			button("-", { on: { click: decrementCount } }),
+			button("+", { on: { click: incrementCount } }),
 		]);
 	});
 
@@ -99,8 +99,8 @@ describe("getting started", () => {
 			FlexDiv({
 				html: FromStates([count], () => `${count.get()}`),
 			}),
-			Button("-", { on: { click: decrementCount } }),
-			Button("+", { on: { click: incrementCount } }),
+			button("-", { on: { click: decrementCount } }),
+			button("+", { on: { click: incrementCount } }),
 		]);
 	});
 

@@ -1,11 +1,11 @@
 import { describe, it } from "vitest";
-import { Button, FlexDiv, For, Modify, useState } from "../../src";
+import { button, FlexDiv, For, Modify, useState } from "../../src";
 
 describe("For", () => {
 	it("shows children from data", () => {
 		const numbers = useState([1, 2, 3]);
 
-		Modify(document.body, { html: "" }, [For(numbers, (n) => Button(`${n}`))]);
+		Modify(document.body, { html: "" }, [For(numbers, (n) => button(`${n}`))]);
 	});
 
 	it("adds and removes item", () => {
@@ -22,12 +22,12 @@ describe("For", () => {
 		Modify(document.body, { html: "" }, [
 			FlexDiv([
 				For(numbers, (n) =>
-					Button(`${n.n}`, {
+					button(`${n.n}`, {
 						on: { click: () => removeNumber(n.n) },
 					}),
 				),
 			]),
-			Button("+", { on: { click: addNumber } }),
+			button("+", { on: { click: addNumber } }),
 		]);
 	});
 });

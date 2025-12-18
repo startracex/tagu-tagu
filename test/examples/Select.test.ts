@@ -1,6 +1,6 @@
 import { describe, it } from "vitest";
 import {
-	Button,
+	button,
 	For,
 	Input,
 	Modify,
@@ -57,8 +57,8 @@ describe(Select, () => {
 				attr: { value: newValue },
 				on: { input: updateValue },
 			}),
-			Button("+", { on: { click: addItem } }),
-			Button("✖", { on: { click: removeItem } }),
+			button("+", { on: { click: addItem } }),
+			button("✖", { on: { click: removeItem } }),
 		]);
 	});
 });
