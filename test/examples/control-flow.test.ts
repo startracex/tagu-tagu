@@ -23,7 +23,7 @@ describe("control-flow", () => {
 					css: { background: "blue", width: "300px", height: "300px" },
 				}),
 			),
-			Span(["Check to show rectangle"]),
+			Span("Check to show rectangle"),
 		]);
 	});
 
@@ -45,9 +45,9 @@ describe("control-flow", () => {
 					FlexDiv({
 						css: { background: "blue", width: "300px", height: "300px" },
 					}),
-				() => FlexDiv(["No rectangle"]),
+				() => FlexDiv("No rectangle"),
 			),
-			Span(["Check to show rectangle"]),
+			Span("Check to show rectangle"),
 		]);
 	});
 
@@ -57,18 +57,18 @@ describe("control-flow", () => {
 		);
 
 		Modify(document.body, { html: "" }, [
-			Button(["Triangle"], { on: { click: () => state.set("triangle") } }),
-			Button(["Rectangle"], { on: { click: () => state.set("rectangle") } }),
-			Button(["Circle"], { on: { click: () => state.set("circle") } }),
-			Button(["Pentagon"], { on: { click: () => state.set("pentagon") } }),
+			Button("Triangle", { on: { click: () => state.set("triangle") } }),
+			Button("Rectangle", { on: { click: () => state.set("rectangle") } }),
+			Button("Circle", { on: { click: () => state.set("circle") } }),
+			Button("Pentagon", { on: { click: () => state.set("pentagon") } }),
 			Switch(
 				state,
 				[
-					{ case: "triangle", show: () => FlexDiv(["▲"]) },
-					{ case: "rectangle", show: () => FlexDiv(["■"]) },
-					{ case: "circle", show: () => FlexDiv(["●"]) },
+					{ case: "triangle", show: () => FlexDiv("▲") },
+					{ case: "rectangle", show: () => FlexDiv("■") },
+					{ case: "circle", show: () => FlexDiv("●") },
 				],
-				() => FlexDiv(["?"]),
+				() => FlexDiv("?"),
 			),
 		]);
 	});
