@@ -45,6 +45,27 @@ describe("data", () => {
 		assert.equal(theme, "dark");
 	});
 
+	it("get data from grand parent", () => {
+		let theme: string | undefined;
+		Div(
+			{
+				data: { theme: "dark" },
+			},
+			[
+				Div([
+					Div({
+						data: {
+							theme: (value: string) => {
+								theme = value;
+							},
+						},
+					}),
+				]),
+			],
+		);
+		assert.equal(theme, "dark");
+	});
+
 	it("ignores callback if data isn't  set", () => {
 		let counter = 0;
 		Div([
