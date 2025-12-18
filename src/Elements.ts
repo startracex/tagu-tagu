@@ -86,9 +86,7 @@ export function li(...initializers: ElementInitializer<HTMLLIElement>[]) {
 	return Html("li", ...initializers);
 }
 
-export function OrderedList(
-	...initializers: ElementInitializer<HTMLOListElement>[]
-) {
+export function ol(...initializers: ElementInitializer<HTMLOListElement>[]) {
 	return Html("ol", ...initializers);
 }
 
