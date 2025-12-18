@@ -50,7 +50,7 @@ export function option(
 	return Html("option", ...initializers);
 }
 
-export function BR(...initializers: ElementInitializer<HTMLBRElement>[]) {
+export function br(...initializers: ElementInitializer<HTMLBRElement>[]) {
 	return Html("br", ...initializers);
 }
 
