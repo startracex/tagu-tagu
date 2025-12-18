@@ -68,7 +68,7 @@ export function b(...initializers: ElementInitializer<HTMLElement>[]) {
 	return Html("b", ...initializers);
 }
 
-export function Label(...initializers: ElementInitializer<HTMLLabelElement>[]) {
+export function label(...initializers: ElementInitializer<HTMLLabelElement>[]) {
 	return Html("label", ...initializers);
 }
 
