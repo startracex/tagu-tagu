@@ -72,9 +72,7 @@ export function label(...initializers: ElementInitializer<HTMLLabelElement>[]) {
 	return Html("label", ...initializers);
 }
 
-export function Anchor(
-	...initializers: ElementInitializer<HTMLAnchorElement>[]
-) {
+export function a(...initializers: ElementInitializer<HTMLAnchorElement>[]) {
 	return Html("a", ...initializers);
 }
 
