@@ -28,6 +28,27 @@ export class NodeData {
 				callback(data);
 			}
 		}
+
+		if (this.node2DataCallbacks.has(child)) {
+			const newRecord = {} as Record<string, ((data: any) => void)[]>;
+			const source = this.node2DataCallbacks.get(child);
+			for (const key in source) {
+				if (!newRecord[key]) {
+					newRecord[key] = [];
+				}
+				newRecord[key].push(source[key]);
+			}
+			this.node2DescendantCallbacks.set(element, newRecord);
+		}
+	}
+
+	node2DescendantCallbacks = new Map<
+		Node,
+		Record<string, ((data: any) => void)[]>
+	>();
+
+	getDescendantCallbacks(node: Node) {
+		return this.node2DescendantCallbacks.get(node);
 	}
 }
 
