@@ -112,7 +112,7 @@ export function canvas(
 	return Html("canvas", ...initializers);
 }
 
-export function IFrame(
+export function iframe(
 	...initializers: ElementInitializer<HTMLIFrameElement>[]
 ) {
 	return Html("iframe", ...initializers);
