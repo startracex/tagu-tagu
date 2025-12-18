@@ -96,6 +96,31 @@ describe("data", () => {
 		]);
 		assert.equal(counter, 0);
 	});
+
+	it("supports multiple children", () => {
+		let theme1: string | undefined;
+		let theme2: string | undefined;
+		Div({ data: { theme: "dark" } }, [
+			Div([
+				Div({
+					data: {
+						theme: (value: string) => {
+							theme1 = value;
+						},
+					},
+				}),
+				Div({
+					data: {
+						theme: (value: string) => {
+							theme2 = value;
+						},
+					},
+				}),
+			]),
+		]);
+		assert.equal(theme1, "dark");
+		assert.equal(theme2, "dark");
+	});
 });
 
 describe("internal cache data", () => {
