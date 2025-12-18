@@ -19,6 +19,9 @@ export function h5(...initializers: ElementInitializer<HTMLHeadingElement>[]) {
 export function h6(...initializers: ElementInitializer<HTMLHeadingElement>[]) {
 	return Html("h6", ...initializers);
 }
+export function p(...initializers: ElementInitializer<HTMLParagraphElement>[]) {
+	return Html("p", ...initializers);
+}
 
 export function button(
 	...initializers: ElementInitializer<HTMLButtonElement>[]
