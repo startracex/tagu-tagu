@@ -58,7 +58,7 @@ export function applyStringOrState(
 }
 
 function applyStringOrStateOrBinding(
-	element: Element,
+	element: Node,
 	value: string | State | Binding,
 	initialize: (text: string) => void,
 ) {
