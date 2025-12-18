@@ -2,7 +2,7 @@ import { describe, it } from "vitest";
 import {
 	button,
 	For,
-	Input,
+	input,
 	Modify,
 	Select,
 	SelectOption,
@@ -53,7 +53,7 @@ describe(Select, () => {
 					on: { change: updateSelectedValue },
 				},
 			),
-			Input({
+			input({
 				attr: { value: newValue },
 				on: { input: updateValue },
 			}),

@@ -34,7 +34,7 @@ export function FlexDiv(...initializers: ElementInitializer<HTMLDivElement>[]) {
 	return div({ css: { display: "flex" } }, ...initializers);
 }
 
-export function Input(...initializers: ElementInitializer<HTMLInputElement>[]) {
+export function input(...initializers: ElementInitializer<HTMLInputElement>[]) {
 	return Html("input", ...initializers);
 }
 

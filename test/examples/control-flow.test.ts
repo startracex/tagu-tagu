@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { button, FlexDiv, Input, span } from "../../src/Elements";
+import { button, FlexDiv, input, span } from "../../src/Elements";
 import { If } from "../../src/flow/If";
 import { Switch } from "../../src/flow/Switch";
 import { Modify } from "../../src/Modify";
@@ -10,7 +10,7 @@ describe("control-flow", () => {
 		const isDisplayed = useState(false);
 
 		Modify(document.body, { html: "" }, [
-			Input({
+			input({
 				attr: { type: "checkbox", checked: isDisplayed },
 				on: {
 					click: () => {
@@ -31,7 +31,7 @@ describe("control-flow", () => {
 		const isDisplayed = useState(false);
 
 		Modify(document.body, { html: "" }, [
-			Input({
+			input({
 				attr: { type: "checkbox", checked: isDisplayed },
 				on: {
 					click: () => {
