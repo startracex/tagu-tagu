@@ -63,16 +63,14 @@ function applyStringOrStateOrBinding(
 	initialize: (text: string) => void,
 ) {
 	if (value instanceof Binding) {
-		Modify(element, {
-			data: {
-				[value.key]: (data: any) => {
-					const isState = data instanceof State;
-					const stringOrState = isState
-						? FromStates([data], () => value.map(data.get()))
-						: value.map(data);
+		initializeData(element, {
+			[value.key]: (data: any) => {
+				const isState = data instanceof State;
+				const stringOrState = isState
+					? FromStates([data], () => value.map(data.get()))
+					: value.map(data);
 
-					applyStringOrState(stringOrState, initialize);
-				},
+				applyStringOrState(stringOrState, initialize);
 			},
 		});
 	} else {
