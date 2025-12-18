@@ -74,10 +74,6 @@ export class NodeData {
 		Node,
 		Record<string, DataCallback[]>
 	>();
-
-	getDescendantCallbacks(node: Node) {
-		return this.node2DescendantCallbacks.get(node);
-	}
 }
 
 export type DataRecord = Record<string, DataCallback | any>;
