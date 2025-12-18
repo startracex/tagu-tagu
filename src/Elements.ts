@@ -94,7 +94,7 @@ export function ul(...initializers: ElementInitializer<HTMLUListElement>[]) {
 	return Html("ul", ...initializers);
 }
 
-export function Audio(...initializers: ElementInitializer<HTMLAudioElement>[]) {
+export function audio(...initializers: ElementInitializer<HTMLAudioElement>[]) {
 	return Html("audio", ...initializers);
 }
 
