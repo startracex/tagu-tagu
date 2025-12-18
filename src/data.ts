@@ -24,10 +24,6 @@ export class NodeData {
 		dataRecord && this.node2Data.set(element, dataRecord);
 	}
 
-	getData(element: Element, key: string) {
-		return this.node2Data.get(element)?.[key];
-	}
-
 	resolveCallbacks(element: Element, child: Node) {
 		/**
 		 * bubble up callbacks record until it reaches root.
