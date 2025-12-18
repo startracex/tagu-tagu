@@ -76,4 +76,18 @@ describe("useBinding", () => {
 		theme.set("light");
 		expect(child.textContent).toBe("Light");
 	});
+
+	it("html, State", () => {
+		const theme = useState("dark");
+
+		const child = Div({
+			html: useBinding("theme", (theme) =>
+				theme === "dark" ? `Dark` : `Light`,
+			),
+		});
+		Div({ data: { theme } }, [child]);
+		expect(child.innerHTML).toBe("Dark");
+		theme.set("light");
+		expect(child.innerHTML).toBe("Light");
+	});
 });

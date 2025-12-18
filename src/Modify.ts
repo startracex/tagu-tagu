@@ -23,7 +23,7 @@ type $Record = Record<
 >;
 
 type ElementPropertyInitializer<TEventType2Event> = {
-	html?: string | State;
+	html?: string | State | Binding;
 	text?: string | State | Binding;
 	attr?: Record<string, string | State | Binding>;
 	prop?: Record<string, any | State | Binding>;
@@ -78,9 +78,12 @@ function applyStringOrStateOrBinding(
 	}
 }
 
-function initializeHtml(element: Element, html: string | State | undefined) {
+function initializeHtml(
+	element: Element,
+	html: string | State | Binding | undefined,
+) {
 	if (html !== undefined) {
-		applyStringOrState(html, (text) => {
+		applyStringOrStateOrBinding(element, html, (text) => {
 			element.innerHTML = text;
 		});
 	}
