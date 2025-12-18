@@ -65,8 +65,8 @@ describe(NodeData, () => {
 
 		const data = new NodeData();
 		const callback = () => {};
-		data.setCallback(nodes[1], "theme", callback);
-		data.setData(nodes[0], "theme", "dark");
+		data.setCallbackRecord(nodes[1], { theme: callback });
+		data.setDataRecord(nodes[0], { theme: "dark" });
 		data.resolveCallbacks(nodes[0], nodes[1]);
 		expect(data.getDescendantCallbacks(nodes[0])).toEqual({
 			theme: [callback],

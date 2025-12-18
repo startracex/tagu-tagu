@@ -2,18 +2,22 @@ export class NodeData {
 	node2Data = new WeakMap<Node, Record<string, any>>();
 	node2DataCallbacks = new WeakMap<Node, Record<string, (data: any) => void>>();
 
-	setCallback(element: Element, key: string, callback: (data: any) => void) {
-		if (!this.node2DataCallbacks.has(element)) {
-			this.node2DataCallbacks.set(element, {});
+	setCallbackRecord(
+		element: Element,
+		callbackRecord: Record<string, (data: any) => void> | undefined,
+	) {
+		callbackRecord && this.node2DataCallbacks.set(element, callbackRecord);
+
+		const dataRecord = this.node2Data.get(element);
+		for (const key in dataRecord) {
+			if (key in dataRecord) {
+				callbackRecord?.[key](dataRecord[key]);
+			}
 		}
-		this.node2DataCallbacks.get(element)![key] = callback;
 	}
 
-	setData(element: Element, key: string, value: any) {
-		if (!this.node2Data.has(element)) {
-			this.node2Data.set(element, {});
-		}
-		this.node2Data.get(element)![key] = value;
+	setDataRecord(element: Element, dataRecord: Record<string, any> | undefined) {
+		dataRecord && this.node2Data.set(element, dataRecord);
 	}
 
 	getData(element: Element, key: string) {
@@ -55,16 +59,8 @@ export class NodeData {
 export type DataRecord = Record<string, ((value: any) => void) | any>;
 export const nodeData = new NodeData();
 export function initializeData(element: Element, data: DataRecord | undefined) {
-	for (const key in data) {
-		const value = data[key];
-		if (typeof value === "function") {
-			nodeData.setCallback(element, key, value);
-			const selfValue = nodeData.getData(element, key);
-			selfValue && value(selfValue);
-		} else {
-			nodeData.setData(element, key, value);
-		}
-	}
+	nodeData.setCallbackRecord(element, extractCallbackRecord(data));
+	nodeData.setDataRecord(element, extractDataValueRecord(data));
 }
 
 export function extractCallbackRecord(
