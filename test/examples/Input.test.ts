@@ -1,30 +1,30 @@
-import { describe, it } from 'vitest';
-import { Button, Input, Modify, useState } from '../../src';
+import { describe, it } from "vitest";
+import { Button, Input, Modify, useState } from "../../src";
 
 describe(Input, () => {
-	it('checkbox', () => {
-		Modify(document.body, { html: '' }, [
-			Input({ attr: { type: 'checkbox' } }),
+	it("checkbox", () => {
+		Modify(document.body, { html: "" }, [
+			Input({ attr: { type: "checkbox" } }),
 		]);
 	});
-	it('two checkboxes', () => {
+	it("two checkboxes", () => {
 		const isChedked = useState(false);
 
 		const onClick = () => {
 			isChedked.set(!isChedked.get());
 		};
 
-		Modify(document.body, { html: '' }, [
+		Modify(document.body, { html: "" }, [
 			Input({
 				attr: {
-					type: 'checkbox',
+					type: "checkbox",
 					checked: isChedked,
 				},
 				on: { click: onClick },
 			}),
 			Input({
 				attr: {
-					type: 'checkbox',
+					type: "checkbox",
 					checked: isChedked,
 				},
 				on: { click: onClick },
@@ -32,15 +32,15 @@ describe(Input, () => {
 		]);
 	});
 
-	it('two textboxes', () => {
-		const value = useState('Hello');
+	it("two textboxes", () => {
+		const value = useState("Hello");
 
 		function updateValue(e: Event) {
 			const newValue = (e.target as HTMLInputElement).value;
 			value.set(newValue);
 		}
 
-		Modify(document.body, { html: '' }, [
+		Modify(document.body, { html: "" }, [
 			Input({
 				attr: { value },
 				on: { input: updateValue },
@@ -52,23 +52,23 @@ describe(Input, () => {
 		]);
 	});
 
-	it('clear textbox', () => {
-		const value = useState('Hello');
+	it("clear textbox", () => {
+		const value = useState("Hello");
 
 		function updateValue(e: Event) {
 			const newValue = (e.target as HTMLInputElement).value;
 			value.set(newValue);
 		}
 		function clearValue() {
-			value.set('');
+			value.set("");
 		}
 
-		Modify(document.body, { html: '' }, [
+		Modify(document.body, { html: "" }, [
 			Input({
 				attr: { value },
 				on: { input: updateValue },
 			}),
-			Button(['clear'], {
+			Button("clear", {
 				on: { click: clearValue },
 			}),
 		]);
