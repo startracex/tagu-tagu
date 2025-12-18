@@ -1,3 +1,4 @@
+import { nodeData } from "../data";
 import { getNextNodeSibling } from "../initializeChildBlock";
 import type { State } from "../State";
 import { ControlFlow } from "./ControlFlow";
@@ -60,6 +61,9 @@ export class SwitchFlow<T> extends ControlFlow {
 			const nextNode = getNextNodeSibling(this);
 
 			const newElement = getElementFromValue(value);
+			// data
+			newElement && nodeData.resolveCallbacks(element, newElement);
+			// insert `newElement`
 			currentElement?.remove();
 			newElement && element.insertBefore(newElement, nextNode);
 			currentElement = newElement;
