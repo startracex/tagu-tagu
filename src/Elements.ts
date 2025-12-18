@@ -118,7 +118,7 @@ export function iframe(
 	return Html("iframe", ...initializers);
 }
 
-export function Form(...initializers: ElementInitializer<HTMLFormElement>[]) {
+export function form(...initializers: ElementInitializer<HTMLFormElement>[]) {
 	return Html("form", ...initializers);
 }
 
