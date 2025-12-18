@@ -57,6 +57,29 @@ export function applyStringOrState(
 	}
 }
 
+function applyStringOrStateOrBinding(
+	element: Element,
+	value: string | State | Binding,
+	initialize: (text: string) => void,
+) {
+	if (value instanceof Binding) {
+		Modify(element, {
+			data: {
+				[value.key]: (data: any) => {
+					const isState = data instanceof State;
+					const stringOrState = isState
+						? FromStates([data], () => value.map(data.get()))
+						: value.map(data);
+
+					applyStringOrState(stringOrState, initialize);
+				},
+			},
+		});
+	} else {
+		applyStringOrState(value, initialize);
+	}
+}
+
 function initializeHtml(element: Element, html: string | State | undefined) {
 	if (html !== undefined) {
 		applyStringOrState(html, (text) => {
@@ -82,24 +105,9 @@ function initializeStyle(
 
 	for (const propName in css) {
 		const value = css[propName];
-		if (value instanceof Binding) {
-			Modify(element, {
-				data: {
-					[value.key]: (data: any) => {
-						const isState = data instanceof State;
-						const stringOrState = isState
-							? FromStates([data], () => value.map(data.get()))
-							: value.map(data);
-
-						applyStringOrState(stringOrState, (text) =>
-							style.setProperty(propName, text),
-						);
-					},
-				},
-			});
-		} else {
-			applyStringOrState(value, (text) => style.setProperty(propName, text));
-		}
+		applyStringOrStateOrBinding(element, value, (text) =>
+			style.setProperty(propName, text),
+		);
 	}
 }
 
