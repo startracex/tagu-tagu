@@ -37,10 +37,10 @@ export class NodeData {
 		) => {
 			resolveCallbacksByData(callbacksRecord, this.node2Data.get(ancestor));
 
-			// Callbacks resolved
+			// If callbacks are empty (resolved), finish bubbling up
 			if (!Object.keys(callbacksRecord).length) return;
 
-			// Root
+			// If it is root,
 			// append callbacks
 			if (!ancestor.parentElement) {
 				if (!this.node2DescendantCallbacks.has(ancestor)) {
