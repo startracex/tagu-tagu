@@ -89,6 +89,23 @@ describe("data", () => {
 		assert.equal(counter, 0);
 	});
 
+	it("calls callback only once", () => {
+		let counter = 0;
+		Div({ data: { theme: "light" } }, [
+			Div(
+				{ data: { theme: "dark" } },
+				{
+					data: {
+						theme: () => {
+							counter++;
+						},
+					},
+				},
+			),
+		]);
+		assert.equal(counter, 1);
+	});
+
 	it("supports multiple children", () => {
 		let theme1: string | undefined;
 		let theme2: string | undefined;

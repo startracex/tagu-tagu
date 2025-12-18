@@ -8,16 +8,9 @@ export class NodeData {
 		callbackRecord: Record<string, DataCallback[]> | undefined,
 	) {
 		if (callbackRecord) {
-			this.node2DescendantCallbacks.set(element, { ...callbackRecord });
-		}
-
-		const dataRecord = this.node2Data.get(element);
-		for (const key in dataRecord) {
-			if (key in dataRecord) {
-				for (const callback of callbackRecord?.[key] ?? []) {
-					callback(dataRecord[key]);
-				}
-			}
+			this.node2DescendantCallbacks.set(element, callbackRecord);
+			const dataRecord = this.node2Data.get(element);
+			resolveCallbacksByData(callbackRecord, dataRecord);
 		}
 	}
 
