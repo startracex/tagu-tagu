@@ -156,3 +156,6 @@ Modify(document.body, [
 ]);
 
 ```
+
+## Seamless migration
+Since `tagu-tagu` is just a helper, you can migrate from anywhere.
