@@ -147,7 +147,7 @@ document.body.appendChild(ForDemo());
 You can use data of ancestors.
 
 ```typescript
-import { button, div, Modify, useBinding, useState } from "tagu-tagu";
+import { button, div, useBinding, useState } from "tagu-tagu";
 
 function Sky() {
 	return div("Sky", {
@@ -159,15 +159,17 @@ function Sky() {
 	});
 }
 
-const theme = useState("dark" as "dark" | "light");
+function DataBindingDemo() {
+	const theme = useState("dark" as "dark" | "light");
 
-Modify(document.body, [
-	div({ data: { theme } }, [
+	return div({ data: { theme } }, [
 		Sky(),
 		button("dark", { on: { click: () => theme.set("dark") } }),
 		button("light", { on: { click: () => theme.set("light") } }),
-	]),
-]);
+	]);
+}
+
+document.body.appendChild(DataBindingDemo());
 
 ```
 
