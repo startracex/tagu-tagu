@@ -1,6 +1,6 @@
 # tagu-tagu
 
-A lightweight helper for vanilla `HTMLElement`. No config, no jsx — only clean javascript.
+A lightweight helper for vanilla `HTMLElement`, with reactivity. No config, no jsx — only clean javascript.
 
 ## `tagu-tagu` is
 
