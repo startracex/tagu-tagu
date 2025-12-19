@@ -17,7 +17,8 @@
 	"type": "module",
 	"main": "src/index.ts",
 	"scripts": {
-		"test:browser": "vitest"
+		"test:browser": "vitest",
+		"build": "tsx scripts/build.ts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.8",
