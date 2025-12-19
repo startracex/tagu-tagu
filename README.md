@@ -1,13 +1,13 @@
-# tag-tag
+# tagu-tagu
 
 A lightweight helper for vanilla `HTMLElement`. No config, no jsx — only clean javascript.
 
-## `tag-tag` is
+## `tagu-tagu` is
 
 just a helper for `HTMLElement`:
 
 ```javascript
-import {button} from "tag-tag";
+import {button} from "tagu-tagu";
 
 const myButton = button("Click Me!"); // `HTMLButtonElement`
 document.body.appendChild(myButton);
@@ -16,7 +16,7 @@ document.body.appendChild(myButton);
 with reactivity!
 
 ```javascript
-import {button, span, Modify, useState} from "tag-tag";
+import {button, span, Modify, useState} from "tagu-tagu";
 
 const count = useState(4);
 
