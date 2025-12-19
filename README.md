@@ -113,28 +113,33 @@ document.body.appendChild(SwitchDemo());
 ### `For`
 
 ```typescript
-import { button, div, For, Modify, useState } from "tagu-tagu";
+import { button, div, For, useState } from "tagu-tagu";
 
-const numbers = useState([1, 2, 3].map((n) => ({ n })));
+function ForDemo() {
+	const numbers = useState([1, 2, 3].map((n) => ({ n })));
+	let id = numbers.get().length;
 
-function addNumber() {
-	const newNumber = numbers.get().length + 1;
-	numbers.set([...numbers.get(), { n: newNumber }]);
+	function addNumber() {
+		id++;
+		numbers.set([...numbers.get(), { n: id }]);
+	}
+	function removeNumber(n: number) {
+		numbers.set(numbers.get().filter((value) => value.n !== n));
+	}
+
+	return div([
+		div([
+			For(numbers, (n) =>
+				button(`${n.n}`, {
+					on: { click: () => removeNumber(n.n) },
+				}),
+			),
+		]),
+		button("+", { on: { click: addNumber } }),
+	]);
 }
-function removeNumber(n: number) {
-	numbers.set(numbers.get().filter((value) => value.n !== n));
-}
 
-Modify(document.body [
-	div([
-		For(numbers, (n) =>
-			button(`${n.n}`, {
-				on: { click: () => removeNumber(n.n) },
-			}),
-		),
-	]),
-	button("+", { on: { click: addNumber } }),
-]);
+document.body.appendChild(ForDemo());
 
 ```
 
