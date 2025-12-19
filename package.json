@@ -1,7 +1,7 @@
 {
 	"name": "tag-tag",
 	"version": "1.0.0",
-	"description": "Lightweight helper for vanilla `HTMLElement`.",
+	"description": "A lightweight helper for vanilla `HTMLElement`.",
 	"keywords": [
 		"vanilla"
 	],
@@ -13,7 +13,7 @@
 		"type": "git",
 		"url": "git+https://github.com/DoTheSimplest/tag-tag.git"
 	},
-	"author": "do-the-simplest",
+	"author": "DoTheSimmplest",
 	"type": "module",
 	"main": "src/index.ts",
 	"files": [
