@@ -6,13 +6,11 @@ A lightweight helper for vanilla `HTMLElement`, with reactivity. No config, no j
 
 just a helper for `HTMLElement`:
 
-```html
-<script type="module">
+```javascript
 import {button} from "https://cdn.jsdelivr.net/npm/tagu-tagu@1.0.1/dist/bundle.min.js";
 
 const myButton = button("Hello!");// `HTMLButtonElement`
 document.body.appendChild(myButton);
-</script>
 ```
 
 with reactivity!
