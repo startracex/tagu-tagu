@@ -42,6 +42,9 @@ document.body.appendChild(CounterDemo());
 
 No need to compile. But typescript is supported.
 
+## Examples
+See examples [here](https://dothesimplest.github.io/tagu-tagu/).
+
 ## Features
 
 ### Initializers
