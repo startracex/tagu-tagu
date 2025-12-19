@@ -6,17 +6,20 @@ A lightweight helper for vanilla `HTMLElement`. No config, no jsx — only clean
 
 just a helper for `HTMLElement`:
 
-```javascript
-import {button} from "tagu-tagu";
+```html
+<script type="module">
+import {button} from "https://cdn.jsdelivr.net/npm/tagu-tagu@1.0.1/dist/bundle.min.js";
 
-const myButton = button("Click Me!"); // `HTMLButtonElement`
+const myButton = button("Hello!");// `HTMLButtonElement`
 document.body.appendChild(myButton);
+</script>
 ```
 
 with reactivity!
 
-```javascript
-import {button, span, Modify, useState} from "tagu-tagu";
+```html
+<script type="module">
+import {button, span, Modify, useState} from "https://cdn.jsdelivr.net/npm/tagu-tagu@1.0.1/dist/bundle.min.js";
 
 const count = useState(4);
 
@@ -32,4 +35,5 @@ Modify(document.body, [
     span(count),// `HTMLSpanElement`
     button("+", { on: { click: incrementCount } }),// `HTMLButtonElement`
 ]);
+</script>
 ```
