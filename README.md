@@ -93,3 +93,31 @@ Modify(document.body, [
 ]);
 
 ```
+
+### `For`
+
+```typescript
+import { button, div, For, Modify, useState } from "tagu-tagu";
+
+const numbers = useState([1, 2, 3].map((n) => ({ n })));
+
+function addNumber() {
+	const newNumber = numbers.get().length + 1;
+	numbers.set([...numbers.get(), { n: newNumber }]);
+}
+function removeNumber(n: number) {
+	numbers.set(numbers.get().filter((value) => value.n !== n));
+}
+
+Modify(document.body [
+	div([
+		For(numbers, (n) =>
+			button(`${n.n}`, {
+				on: { click: () => removeNumber(n.n) },
+			}),
+		),
+	]),
+	button("+", { on: { click: addNumber } }),
+]);
+
+```
