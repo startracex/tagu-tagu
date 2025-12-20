@@ -1,21 +1,13 @@
 import { assert, describe, it } from "vitest";
 import { div } from "../../src";
+import { waitForData } from "../../src/data/data";
 
 describe("data", () => {
-	it("get data from self", () => {
-		let theme: string | undefined;
-		div(
-			{
-				data: { theme: "dark" },
-			},
-			{
-				data: {
-					theme: (value: string) => {
-						theme = value;
-					},
-				},
-			},
-		);
+	it("get data from self", async () => {
+		const element = div({
+			data: { theme: "dark" },
+		});
+		const theme = await waitForData(element, "theme");
 		assert.equal(theme, "dark");
 	});
 
@@ -26,12 +18,8 @@ describe("data", () => {
 				data: { theme: "dark" },
 			},
 			[
-				div({
-					data: {
-						theme: (value: string) => {
-							theme = value;
-						},
-					},
+				div(async (node) => {
+					theme = await waitForData(node, "theme");
 				}),
 			],
 		);
@@ -46,12 +34,8 @@ describe("data", () => {
 			},
 			[
 				div([
-					div({
-						data: {
-							theme: (value: string) => {
-								theme = value;
-							},
-						},
+					div(async (node) => {
+						theme = await waitForData(node, "theme");
 					}),
 				]),
 			],
@@ -63,12 +47,8 @@ describe("data", () => {
 		let theme: string | undefined;
 		div({ data: { theme: "light" } }, [
 			div({ data: { theme: "dark" } }, [
-				div({
-					data: {
-						theme: (value: string) => {
-							theme = value;
-						},
-					},
+				div(async (node) => {
+					theme = await waitForData(node, "theme");
 				}),
 			]),
 		]);
@@ -78,12 +58,9 @@ describe("data", () => {
 	it("ignores callback if data isn't  set", () => {
 		let counter = 0;
 		div([
-			div({
-				data: {
-					theme: () => {
-						counter++;
-					},
-				},
+			div(async (node) => {
+				await waitForData(node, "theme");
+				counter++;
 			}),
 		]);
 		assert.equal(counter, 0);
@@ -92,16 +69,10 @@ describe("data", () => {
 	it("calls callback only once", () => {
 		let counter = 0;
 		div({ data: { theme: "light" } }, [
-			div(
-				{ data: { theme: "dark" } },
-				{
-					data: {
-						theme: () => {
-							counter++;
-						},
-					},
-				},
-			),
+			div({ data: { theme: "dark" } }, async (node) => {
+				await waitForData(node, "theme");
+				counter++;
+			}),
 		]);
 		assert.equal(counter, 1);
 	});
@@ -111,19 +82,11 @@ describe("data", () => {
 		let theme2: string | undefined;
 		div({ data: { theme: "dark" } }, [
 			div([
-				div({
-					data: {
-						theme: (value: string) => {
-							theme1 = value;
-						},
-					},
+				div(async (node) => {
+					theme1 = await waitForData(node, "theme");
 				}),
-				div({
-					data: {
-						theme: (value: string) => {
-							theme2 = value;
-						},
-					},
+				div(async (node) => {
+					theme2 = await waitForData(node, "theme");
 				}),
 			]),
 		]);
@@ -135,19 +98,13 @@ describe("data", () => {
 		let counter = 0;
 		div({ data: { theme: "dark" } }, [
 			div(
-				{
-					data: {
-						theme: () => {
-							counter++;
-						},
-					},
+				async (node) => {
+					await waitForData(node, "theme");
+					counter++;
 				},
-				{
-					data: {
-						theme: () => {
-							counter++;
-						},
-					},
+				async (node) => {
+					await waitForData(node, "theme");
+					counter++;
 				},
 			),
 		]);

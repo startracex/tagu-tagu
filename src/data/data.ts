@@ -158,3 +158,9 @@ export function findData(node: Node | null, key: string) {
 	}
 	return findData(node.parentElement, key);
 }
+
+export function waitForData(node: Node, key: string) {
+	return new Promise<any>((resolve) => {
+		nodeData.addCallbacks(node, { [key]: [resolve] });
+	});
+}
