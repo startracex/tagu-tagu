@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { div, If, IfFlow, useState } from "../../src";
+import { div, If, useState } from "../../src";
 
-describe(IfFlow, () => {
+describe(If, () => {
 	it("[Div, If, If]", () => {
 		const conditions = [useState(true), useState(false)];
 		const children = [
