@@ -2,7 +2,6 @@ import { assert, describe, expect, it } from "vitest";
 import { div } from "../../src";
 import {
 	appendCallbacksRecord,
-	type DataRecord,
 	extractCallbackRecord,
 	nodeData,
 	waitForData,
@@ -22,8 +21,8 @@ describe(extractCallbackRecord, () => {
 		const callbacks = extractCallbackRecord(undefined);
 		expect(callbacks).toBeUndefined();
 	});
-	it("extracts functions from object", () => {
-		const record = { callback: () => {} } as DataRecord;
+	it("func -> [func]", () => {
+		const record = { callback: () => {} };
 		const callbacks = extractCallbackRecord(record);
 		assert(callbacks);
 		expect(callbacks.callback).toEqual([record.callback]);
