@@ -26,13 +26,13 @@ export function useState<T>(states: State[], map: () => T): State<T>;
 export function useState<T>(value: T): State<T>;
 export function useState<T>(value: any, map?: any) {
 	if (typeof map === "function") {
-		return FromStates(value, map);
+		return fromStates(value, map);
 	} else {
 		return new State<T>(value);
 	}
 }
 
-export function FromStates<T>(states: State[], createValue: () => T) {
+export function fromStates<T>(states: State[], createValue: () => T) {
 	const result = new State<T>(createValue());
 	const update = () => {
 		result.set(createValue());
