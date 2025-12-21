@@ -24,7 +24,8 @@
 	"scripts": {
 		"test:browser": "vitest",
 		"build": "tsx scripts/build.ts",
-		"typecheck:watch": "tsc -p tsconfig.check.json --watch"
+		"typecheck:watch": "tsc -p tsconfig.check.json --watch",
+		"watch": "tsx --watch scripts/watch.ts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.8",
