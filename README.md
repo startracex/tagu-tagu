@@ -86,6 +86,22 @@ document.body.appendChild(HtmlExample());
 
 ```
 
+#### `css` initializer
+[JSFiddle](https://jsfiddle.net/do_the_simplest/mfLutvnc/1/)
+
+```typescript
+import { button } from "tagu-tagu";
+
+// element.style.setProperty
+function CssExample() {
+	return button({
+		css: { width: "300px", height: "300px" },
+	});
+}
+
+document.body.appendChild(CssExample());
+```
+
 ### `If`
 
 ```typescript
