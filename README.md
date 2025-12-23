@@ -134,6 +134,19 @@ function AttrExample() {
 document.body.appendChild(AttrExample());
 ```
 
+#### `on` initializer
+[JSFiddle](https://jsfiddle.net/do_the_simplest/Lsjmw263/)
+```typescript
+import { button } from "tagu-tagu";
+
+// Element: addEventListener
+function OnExample() {
+	return button("Click Me", { on: { click: () => alert("Hello!") } });
+}
+
+document.body.appendChild(OnExample());
+```
+
 ### `If`
 
 ```typescript
