@@ -52,26 +52,6 @@ button("Hello!", {css: {background: "blue"}});
 button({css: {background: "blue"}}, "Hello!");
 ```
 
-#### Modify existing element
-You can use initializers for existing element.
-[JSFiddle](https://jsfiddle.net/do_the_simplest/o87nw6zL/15/)
-
-```typescript
-import { Modify } from "tagu-tagu";
-
-Modify(document.body, {
-	text: "💣",
-	css: {
-		background: "skyblue",
-	},
-	on: {
-		click: () => {
-			document.body.textContent = "💥";
-		},
-	},
-});
-
-```
 
 #### `html` initializer
 [JSFiddle](https://jsfiddle.net/do_the_simplest/6p9jh45L/2/)
@@ -146,6 +126,27 @@ function OnExample() {
 }
 
 document.body.appendChild(OnExample());
+```
+
+#### Modify existing element
+You can use initializers for existing element.
+[JSFiddle](https://jsfiddle.net/do_the_simplest/o87nw6zL/15/)
+
+```typescript
+import { Modify } from "tagu-tagu";
+
+Modify(document.body, {
+	text: "💣",
+	css: {
+		background: "skyblue",
+	},
+	on: {
+		click: () => {
+			document.body.textContent = "💥";
+		},
+	},
+});
+
 ```
 
 #### `$` initializer
