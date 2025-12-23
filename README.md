@@ -149,6 +149,20 @@ function OnExample() {
 document.body.appendChild(OnExample());
 ```
 
+#### `data` initializer
+[JSFiddle](https://jsfiddle.net/do_the_simplest/9cLtyzkm/1/)
+
+```typescript
+import { div, waitForData } from "tagu-tagu";
+
+function DataExample() {
+	return div({ data: { "my-data-key": "Hello World!" } });
+}
+
+const element = DataExample();
+console.log(await waitForData(element, "my-data-key")); // Hello World!
+```
+
 #### Modify existing element
 You can use initializers for existing element.
 [JSFiddle](https://jsfiddle.net/do_the_simplest/o87nw6zL/15/)
@@ -169,6 +183,7 @@ Modify(document.body, {
 });
 
 ```
+
 
 #### `$` initializer
 [JSFiddle](https://jsfiddle.net/do_the_simplest/b8roj7wx/1/)
@@ -271,21 +286,6 @@ function InitializerCallbackExample() {
 
 document.body.appendChild(InitializerCallbackExample());
 ```
-
-#### `data` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/9cLtyzkm/1/)
-
-```typescript
-import { div, waitForData } from "tagu-tagu";
-
-function DataExample() {
-	return div({ data: { "my-data-key": "Hello World!" } });
-}
-
-const element = DataExample();
-console.log(await waitForData(element, "my-data-key")); // Hello World!
-```
-
 ### `If`
 [JSFiddle](https://jsfiddle.net/do_the_simplest/bxuqsh1d/19/)
 
