@@ -72,6 +72,20 @@ Modify(document.body, {
 
 ```
 
+#### `html` initializer
+[JSFiddle](https://jsfiddle.net/do_the_simplest/6p9jh45L/2/)
+```typescript
+import { div } from "tagu-tagu";
+
+// Element: innerHTML
+function HtmlExample() {
+	return div({ html: `<button>Hello World!</button>` });
+}
+
+document.body.appendChild(HtmlExample());
+
+```
+
 ### `If`
 
 ```typescript
