@@ -272,7 +272,7 @@ function InitializerCallbackExample() {
 document.body.appendChild(InitializerCallbackExample());
 ```
 
-#### Data initializer
+#### `data` initializer
 [JSFiddle](https://jsfiddle.net/do_the_simplest/9cLtyzkm/1/)
 
 ```typescript
