@@ -313,6 +313,26 @@ function InitializerCallbackExample() {
 
 document.body.appendChild(InitializerCallbackExample());
 ```
+
+### `State`
+[JSFiddle](https://jsfiddle.net/do_the_simplest/j3948zpo/1/)
+```typescript
+import { button, div, useState } from "tagu-tagu";
+
+function SimpleStateExample() {
+	const count = useState(0);
+
+	function incrementCount() {
+		count.set(count.get() + 1);
+	}
+
+	return div([div(count), button("+", { on: { click: incrementCount } })]);
+}
+
+document.body.appendChild(SimpleStateExample());
+```
+
+
 ### `If`
 [JSFiddle](https://jsfiddle.net/do_the_simplest/bxuqsh1d/21/)
 
