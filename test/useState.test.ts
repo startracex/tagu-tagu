@@ -9,4 +9,11 @@ describe(useState, () => {
 		input.set(true);
 		assert(!not.get());
 	});
+	it("from `State`", () => {
+		const input = useState(false);
+		const not = useState(input, (value) => !value);
+		assert(not.get());
+		input.set(true);
+		assert(!not.get());
+	});
 });

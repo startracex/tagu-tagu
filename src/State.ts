@@ -23,10 +23,17 @@ export class State<T = any> {
 type StateEventType = "change";
 
 export function useState<T>(states: State[], map: () => T): State<T>;
+export function useState<TSrc, TDest>(
+	state: State<TSrc>,
+	map: (value: TSrc) => TDest,
+): State<TDest>;
 export function useState<T>(value: T): State<T>;
 export function useState<T>(value: any, map?: any) {
 	if (typeof map === "function") {
-		return fromStates(value, map);
+		if (Array.isArray(value)) {
+			return fromStates(value, map);
+		}
+		return fromStates([value], () => map(value.get()));
 	} else {
 		return new State<T>(value);
 	}
