@@ -352,6 +352,30 @@ function StateFromStateExample() {
 document.body.appendChild(StateFromStateExample());
 ```
 
+[JSFiddle](https://jsfiddle.net/do_the_simplest/8hsuc5pn/1/)
+```typescript
+import { button, div, useState } from "tagu-tagu";
+
+function TwoStatesFromStateExample() {
+	const count = useState(0);
+
+	function incrementCount() {
+		count.set(count.get() + 1);
+	}
+
+	return div([
+		div(
+			useState(count, (n) => (n ? n : "Zero")),
+			{
+				css: { color: useState(count, (n) => (n % 2 === 0 ? "blue" : "tan")) },
+			},
+		),
+		button("+", { on: { click: incrementCount } }),
+	]);
+}
+
+document.body.appendChild(TwoStatesFromStateExample());
+```
 
 ### `If`
 [JSFiddle](https://jsfiddle.net/do_the_simplest/bxuqsh1d/21/)
