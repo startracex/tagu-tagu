@@ -50,18 +50,35 @@ button("Hello!", {css: {background: "blue"}});
 button({css: {background: "blue"}}, "Hello!");
 ```
 
-#### Children initializer
+#### text initializer
 
 ```typescript
 import { div } from "tagu-tagu";
 
-function ChildExample() {
+function SimpleTextExample() {
 	return div("Hello");
 }
 
-document.body.appendChild(ChildExample());
+document.body.appendChild(SimpleTextExample());
 ```
-[JSFiddle](https://jsfiddle.net/do_the_simplest/q4kzphbr/1/)
+[JSFiddle](https://jsfiddle.net/do_the_simplest/q4kzphbr/2/)
+
+or
+
+```typescript
+import { div } from "tagu-tagu";
+
+// Element: textContent
+function TextExample() {
+	return div({ text: "Hello" });
+}
+
+document.body.appendChild(TextExample());
+```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/yqda3rhp/9/)
+
+#### Children initializer
+
 
 ```typescript
 import { button, div, h1 } from "tagu-tagu";
