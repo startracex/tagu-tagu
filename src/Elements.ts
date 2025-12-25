@@ -167,3 +167,7 @@ export function tbody(
 export function hr(...initializers: ElementInitializer<HTMLHRElement>[]) {
 	return Html("hr", ...initializers);
 }
+
+export function main(...initializers: ElementInitializer<HTMLElement>[]) {
+	return Html("main", ...initializers);
+}
