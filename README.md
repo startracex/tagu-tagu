@@ -52,7 +52,6 @@ button({css: {background: "blue"}}, "Hello!");
 
 #### Children initializer
 
-[JSFiddle](https://jsfiddle.net/do_the_simplest/q4kzphbr/1/)
 ```typescript
 import { div } from "tagu-tagu";
 
@@ -62,8 +61,8 @@ function ChildExample() {
 
 document.body.appendChild(ChildExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/q4kzphbr/1/)
 
-[JSFiddle](https://jsfiddle.net/do_the_simplest/hx9mn4rg/1/)
 ```typescript
 import { button, div, h1 } from "tagu-tagu";
 
@@ -75,10 +74,10 @@ function ChildrenExample() {
 document.body.appendChild(ChildrenExample());
 
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/hx9mn4rg/1/)
 
 
 #### `html` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/6p9jh45L/2/)
 ```typescript
 import { div } from "tagu-tagu";
 
@@ -90,9 +89,9 @@ function HtmlExample() {
 document.body.appendChild(HtmlExample());
 
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/6p9jh45L/2/)
 
 #### `css` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/mfLutvnc/1/)
 
 ```typescript
 import { button } from "tagu-tagu";
@@ -106,9 +105,9 @@ function CssExample() {
 
 document.body.appendChild(CssExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/mfLutvnc/1/)
 
 #### `attr` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/r8a423pw/1/)
 
 ```typescript
 import { input } from "tagu-tagu";
@@ -122,9 +121,9 @@ function AttrExample() {
 
 document.body.appendChild(AttrExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/r8a423pw/1/)
 
 #### `prop` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/mc38ksqw/2/)
 
 ```typescript
 import { option, select } from "tagu-tagu";
@@ -138,9 +137,9 @@ function PropExample() {
 
 document.body.appendChild(PropExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/mc38ksqw/2/)
 
 #### `on` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/Lsjmw263/)
 ```typescript
 import { button } from "tagu-tagu";
 
@@ -151,9 +150,9 @@ function OnExample() {
 
 document.body.appendChild(OnExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/Lsjmw263/)
 
 #### `data` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/9cLtyzkm/1/)
 
 ```typescript
 import { div, waitForData } from "tagu-tagu";
@@ -165,8 +164,8 @@ function DataExample() {
 const element = DataExample();
 console.log(await waitForData(element, "my-data-key")); // Hello World!
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/9cLtyzkm/1/)
 
-[JSFiddle](https://jsfiddle.net/do_the_simplest/eh7bdrvL/3/)
 ```typescript
 import { div, Modify, waitForData } from "tagu-tagu";
 
@@ -189,10 +188,10 @@ function DataFromParentExample() {
 
 document.body.appendChild(DataFromParentExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/eh7bdrvL/3/)
 
 #### Modify existing element
 You can use initializers for existing element.
-[JSFiddle](https://jsfiddle.net/do_the_simplest/o87nw6zL/15/)
 
 ```typescript
 import { Modify } from "tagu-tagu";
@@ -210,10 +209,10 @@ Modify(document.body, {
 });
 
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/o87nw6zL/15/)
 
 
 #### `$` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/b8roj7wx/1/)
 ```html
 <form>
     <div>Name: <input id="name"></div>
@@ -250,9 +249,9 @@ function $Example() {
 
 $Example();
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/b8roj7wx/1/)
 
 #### `$$` initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/gqe5378t/1/)
 ```html
 <meta charset="utf-8">
 <div>
@@ -293,9 +292,9 @@ function $$Example() {
 
 $$Example();
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/gqe5378t/1/)
 
 #### Callback initializer
-[JSFiddle](https://jsfiddle.net/do_the_simplest/tfj8uqa7/3/)
 ```typescript
 import { button, div } from "tagu-tagu";
 
@@ -313,9 +312,9 @@ function InitializerCallbackExample() {
 
 document.body.appendChild(InitializerCallbackExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/tfj8uqa7/3/)
 
 ### `State`
-[JSFiddle](https://jsfiddle.net/do_the_simplest/j3948zpo/1/)
 ```typescript
 import { button, div, useState } from "tagu-tagu";
 
@@ -331,8 +330,8 @@ function SimpleStateExample() {
 
 document.body.appendChild(SimpleStateExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/j3948zpo/1/)
 
-[JSFiddle](https://jsfiddle.net/do_the_simplest/by934m81/2/)
 ```typescript
 import { button, div, useState } from "tagu-tagu";
 
@@ -351,8 +350,8 @@ function StateFromStateExample() {
 
 document.body.appendChild(StateFromStateExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/by934m81/2/)
 
-[JSFiddle](https://jsfiddle.net/do_the_simplest/8hsuc5pn/1/)
 ```typescript
 import { button, div, useState } from "tagu-tagu";
 
@@ -376,9 +375,9 @@ function TwoStatesFromStateExample() {
 
 document.body.appendChild(TwoStatesFromStateExample());
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/8hsuc5pn/1/)
 
 ### `If`
-[JSFiddle](https://jsfiddle.net/do_the_simplest/bxuqsh1d/21/)
 
 ```typescript
 import { div, If, input, span, useState } from "tagu-tagu";
@@ -408,9 +407,9 @@ function IfExample() {
 document.body.appendChild(IfExample());
 
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/bxuqsh1d/21/)
 
 ### `Switch`
-[JSFiddle](https://jsfiddle.net/do_the_simplest/vw8hrz1t/14/)
 
 ```typescript
 import { button, div, Switch, useState } from "tagu-tagu";
@@ -438,9 +437,9 @@ function SwitchExample() {
 document.body.appendChild(SwitchExample());
 
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/vw8hrz1t/14/)
 
 ### `For`
-[JSFiddle](https://jsfiddle.net/do_the_simplest/soLa9v6t/12/)
 
 ```typescript
 import { button, div, For, useState } from "tagu-tagu";
@@ -472,10 +471,10 @@ function ForExample() {
 document.body.appendChild(ForExample());
 
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/soLa9v6t/12/)
 
 ### Data binding
 You can use data of ancestors.
-[JSFiddle](https://jsfiddle.net/do_the_simplest/9u6oz2bc/6/)
 
 ```typescript
 import { button, div, useBinding, useState } from "tagu-tagu";
@@ -503,6 +502,7 @@ function DataBindingExample() {
 document.body.appendChild(DataBindingExample());
 
 ```
+[JSFiddle](https://jsfiddle.net/do_the_simplest/9u6oz2bc/6/)
 
 ## Seamless migration
 Since `tagu-tagu` is just a helper, you can migrate from anywhere.
