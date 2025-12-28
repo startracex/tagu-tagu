@@ -1,5 +1,5 @@
 import { assert, describe, it } from "vitest";
-import { Modify, option, select } from "../src";
+import { button, Modify, ModifyAll, option, select } from "../src";
 
 describe(Modify, () => {
 	it("text", () => {
@@ -16,5 +16,16 @@ describe(Modify, () => {
 		}
 		const selectElement = AttrExample();
 		assert.equal(selectElement.selectedIndex, 1);
+	});
+});
+
+describe(ModifyAll, () => {
+	it("text", () => {
+		Modify(document.body, { html: "" }, [button(), button(), button()]);
+		ModifyAll("button", { text: "my-button" });
+		assert.deepEqual(
+			[...document.body.children].map((b) => b.textContent),
+			["my-button", "my-button", "my-button"],
+		);
 	});
 });

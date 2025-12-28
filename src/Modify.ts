@@ -227,3 +227,12 @@ export function Modify<T extends Element>(
 	}
 	return element;
 }
+
+export function ModifyAll(
+	selector: string,
+	...initializers: ElementInitializer<Element>[]
+) {
+	for (const element of document.querySelectorAll(selector)) {
+		Modify<Element>(element, ...initializers);
+	}
+}
