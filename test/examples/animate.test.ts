@@ -49,9 +49,9 @@ describe("animate", () => {
 		Modify(document.body, { html: "" }, [
 			div(
 				"Hello!",
-				{ css: { background: "blue" } },
+				{ css: { left: "0px", background: "blue", position: "absolute" } },
 				{
-					css: { background: "lime" },
+					css: { left: "100px" },
 					animate: { duration: 1000, easing: "swing" },
 				},
 				{ text: "Animation Finished" },
