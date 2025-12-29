@@ -1,7 +1,7 @@
 import { describe, it } from "vitest";
 import { button, div, span, style } from "../../src/Elements";
 import { Modify } from "../../src/Modify";
-import { useState } from "../../src/State";
+import { useComputed, useState } from "../../src/State";
 
 describe("getting started", () => {
 	it("add button", () => {
@@ -97,7 +97,7 @@ describe("getting started", () => {
 
 		Modify(document.body, { html: "" }, [
 			div({
-				html: useState([count], () => `${count.get()}`),
+				html: useComputed([count], () => `${count.get()}`),
 			}),
 			button("-", { on: { click: decrementCount } }),
 			button("+", { on: { click: incrementCount } }),

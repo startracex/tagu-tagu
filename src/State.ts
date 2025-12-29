@@ -20,21 +20,20 @@ export class State<T = any> {
 	}
 }
 
-export function useState<T>(states: State[], map: () => T): State<T>;
-export function useState<TSrc, TDest>(
+export function useState<T>(value: T): State<T> {
+	return new State<T>(value);
+}
+
+export function useComputed<T>(states: State[], map: () => T): State<T>;
+export function useComputed<TSrc, TDest>(
 	state: State<TSrc>,
 	map: (value: TSrc) => TDest,
 ): State<TDest>;
-export function useState<T>(value: T): State<T>;
-export function useState<T>(value: any, map?: any) {
-	if (typeof map === "function") {
-		if (Array.isArray(value)) {
-			return fromStates(value, map);
-		}
-		return fromStates([value], () => map(value.get()));
-	} else {
-		return new State<T>(value);
+export function useComputed(value: any, map: any){
+	if (Array.isArray(value)) {
+		return fromStates(value, map);
 	}
+	return fromStates([value], () => map(value.get()));
 }
 
 function fromStates<T>(states: State[], createValue: () => T) {
