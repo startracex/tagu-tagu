@@ -154,16 +154,18 @@ function initializeProps(
 }
 
 function initialize$(element: Element, $: $Record | undefined) {
-	const promises = [] as Promise<void>[];
+	const results = [];
 
 	for (const selector in $) {
 		const selected = element.querySelector(selector);
-		if (selected) {
-			const result = initialize(selected, $[selector]);
-			if (result instanceof Promise) promises.push(result);
-		}
+		if (selected) results.push(initialize(selected, $[selector]));
 	}
 
+	return extractPromiseAll(results);
+}
+
+function extractPromiseAll(results: any[]) {
+	const promises = results.filter((result) => result instanceof Promise);
 	if (promises.length !== 0) return Promise.all(promises);
 }
 
