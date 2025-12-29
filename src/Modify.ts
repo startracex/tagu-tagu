@@ -203,7 +203,7 @@ function initializeEventListeners<TEventType2Event>(
 	}
 }
 
-function initializePropertyInitializerWithoutAnimation<
+function initializePropertyInitializerWithoutOwnAnimation<
 	TElement extends Element,
 	TEventType2Event,
 >(
@@ -250,7 +250,7 @@ function initializePropertyInitializerWithAnimation<
 
 	const animation = element.animate([{}, css], options);
 	return animation.finished.then(() =>
-		initializePropertyInitializerWithoutAnimation(element, initializer),
+		initializePropertyInitializerWithoutOwnAnimation(element, initializer),
 	);
 }
 
@@ -270,7 +270,10 @@ function initialize<TElement extends Element, TEventType2Event>(
 		if (initializer.animate !== undefined) {
 			return initializePropertyInitializerWithAnimation(element, initializer);
 		}
-		return initializePropertyInitializerWithoutAnimation(element, initializer);
+		return initializePropertyInitializerWithoutOwnAnimation(
+			element,
+			initializer,
+		);
 	}
 }
 
