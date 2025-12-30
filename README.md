@@ -393,9 +393,9 @@ document.body.appendChild(ComputedExample());
 [JSFiddle](https://jsfiddle.net/do_the_simplest/by934m81/7/)
 
 ```typescript
-import { button, div, useState } from "tagu-tagu";
+import { button, div, useState, useComputed } from "tagu-tagu";
 
-function TwoStatesFromStateExample() {
+function TwoComputedSignalsExample() {
 	const count = useState(0);
 
 	function incrementCount() {
@@ -415,7 +415,7 @@ function TwoStatesFromStateExample() {
 	]);
 }
 
-document.body.appendChild(TwoStatesFromStateExample());
+document.body.appendChild(TwoComputedSignalsStateExample());
 ```
 [JSFiddle](https://jsfiddle.net/do_the_simplest/8hsuc5pn/1/)
 
