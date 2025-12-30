@@ -390,7 +390,7 @@ function StateFromStateExample() {
 
 document.body.appendChild(StateFromStateExample());
 ```
-[JSFiddle](https://jsfiddle.net/do_the_simplest/by934m81/2/)
+[JSFiddle](https://jsfiddle.net/do_the_simplest/by934m81/7/)
 
 ```typescript
 import { button, div, useState } from "tagu-tagu";
