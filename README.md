@@ -417,7 +417,7 @@ function TwoComputedSignalsExample() {
 
 document.body.appendChild(TwoComputedSignalsStateExample());
 ```
-[JSFiddle](https://jsfiddle.net/do_the_simplest/8hsuc5pn/1/)
+[JSFiddle](https://jsfiddle.net/do_the_simplest/8hsuc5pn/5/)
 
 ### `If`
 
