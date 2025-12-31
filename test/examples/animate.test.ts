@@ -1,6 +1,6 @@
 import { describe, it } from "vitest";
 import { div, Modify, ModifyAsync, useState } from "../../src";
-import { wait } from "../wait";
+import { sleep } from "../sleep";
 
 describe("animate", () => {
 	it("simple duration", () => {
@@ -77,7 +77,7 @@ describe("animate", () => {
 			div(
 				"Hello!",
 				async () => {
-					await wait(1000);
+					await sleep(1000);
 				},
 				{ text: "Completed" },
 			),

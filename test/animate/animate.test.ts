@@ -1,6 +1,6 @@
 import { assert, describe, it } from "vitest";
 import { div, ModifyAsync } from "../../src";
-import { wait } from "../wait";
+import { sleep } from "../sleep";
 
 describe("animate", () => {
 	it("$", async () => {
@@ -14,7 +14,7 @@ describe("animate", () => {
 			{
 				$: {
 					"#a": async () => {
-						await wait(1);
+						await sleep(1);
 						log.push("a");
 					},
 					"#b": () => {
@@ -40,7 +40,7 @@ describe("animate", () => {
 			{
 				$$: {
 					"#a": async () => {
-						await wait(1);
+						await sleep(1);
 						log.push("a");
 					},
 					"#b": () => {
