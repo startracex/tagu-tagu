@@ -51,7 +51,7 @@ export type ElementInitializer<
 	| ChildType[]
 	| ((element: TElement) => any);
 
-export function applyStringOrState(
+export function applyStringOrSignal(
 	value: string | Signal,
 	initialize: (text: string) => void,
 ) {
@@ -77,11 +77,11 @@ function applyStringOrStateOrBinding(
 					? useComputed(() => value.map(data.get()))
 					: value.map(data);
 
-				applyStringOrState(stringOrSignal, initialize);
+				applyStringOrSignal(stringOrSignal, initialize);
 			},
 		});
 	} else {
-		applyStringOrState(value, initialize);
+		applyStringOrSignal(value, initialize);
 	}
 }
 

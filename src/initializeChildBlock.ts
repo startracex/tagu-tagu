@@ -1,6 +1,6 @@
 import { nodeData } from "./data/data";
 import { ControlFlow } from "./flow/ControlFlow";
-import { applyStringOrState } from "./Modify";
+import { applyStringOrSignal } from "./Modify";
 import { Signal } from "./signal/Signal";
 
 export type ChildType = Node | string | Signal | ControlFlow;
@@ -26,7 +26,7 @@ export function resolveTextNode(children: ChildType[]): (Node | ControlFlow)[] {
 	return children.map((c) => {
 		if (typeof c === "string" || c instanceof Signal) {
 			const textNode = document.createTextNode("");
-			applyStringOrState(c, (text) => {
+			applyStringOrSignal(c, (text) => {
 				textNode.textContent = text;
 			});
 			return textNode;
