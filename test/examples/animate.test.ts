@@ -1,6 +1,6 @@
 import { describe, it } from "vitest";
 import { div, Modify, ModifyAsync, useState } from "../../src";
-import { sleep } from "../sleep";
+import { sleep } from "../../src/sleep";
 
 describe("animate", () => {
 	it("simple duration", () => {

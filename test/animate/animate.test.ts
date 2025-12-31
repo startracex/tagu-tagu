@@ -1,6 +1,6 @@
 import { assert, describe, it } from "vitest";
 import { div, ModifyAsync } from "../../src";
-import { sleep } from "../sleep";
+import { sleep } from "../../src/sleep";
 
 describe("animate", () => {
 	it("$", async () => {
