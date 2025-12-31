@@ -476,7 +476,7 @@ function EffectWithCleanupExample() {
 
 document.body.appendChild(EffectWithCleanupExample());
 ```
-
+[JSFiddle](https://jsfiddle.net/do_the_simplest/7L9yb6vd/2/)
 
 ### `If`
 
