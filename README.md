@@ -606,7 +606,7 @@ function AwaitRejectExample() {
 
 document.body.appendChild(AwaitRejectExample());
 ```
-[JSFiddle](https://jsfiddle.net/do_the_simplest/9sqf6ey2/2/)
+[JSFiddle](https://jsfiddle.net/do_the_simplest/9sqf6ey2/3/)
 
 #### `Promise<Element>`
 
