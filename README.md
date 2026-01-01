@@ -589,14 +589,14 @@ document.body.appendChild(AwaitExample());
 ```typescript
 import { Await, div, sleep, span } from "tagu-tagu";
 
-async function PromiseComponent() {
+async function asyncFunction() {
 	await sleep(2000);
 	throw "Error!";
 }
 
 function AwaitRejectExample() {
 	return div([
-		Await(PromiseComponent(), {
+		Await(asyncFunction(), {
 			pending: () => span("Loading..."),
 			fulfilled: () => span(),
 			rejected: (error) => span(error),
