@@ -178,3 +178,9 @@ export function main(...initializers: ElementInitializer<HTMLElement>[]) {
 export function pre(...initializers: ElementInitializer<HTMLPreElement>[]) {
 	return Html("pre", ...initializers);
 }
+
+export function script(
+	...initializers: ElementInitializer<HTMLScriptElement>[]
+) {
+	return Html("script", ...initializers);
+}

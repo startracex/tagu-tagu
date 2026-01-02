@@ -1,4 +1,4 @@
-import { describe, it } from "vitest";
+import { assert, describe, it } from "vitest";
 import {
 	h1,
 	h2,
@@ -9,6 +9,7 @@ import {
 	Modify,
 	p,
 	pre,
+	script,
 	section,
 	textarea,
 } from "../../src";
@@ -27,5 +28,9 @@ describe("elements", () => {
 			textarea(),
 			pre(["This is <pre>"]),
 		]);
+	});
+
+	it(`<script>`, () => {
+		assert.equal(script().tagName, "SCRIPT");
 	});
 });
