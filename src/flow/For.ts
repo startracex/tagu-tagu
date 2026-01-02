@@ -62,15 +62,21 @@ export class ForMap<T> extends ControlFlow {
 			}
 
 			// Sort
-			for (const child of [...view2Model.keys()]) {
-				// child might not be appended yet. (so we need `?`)
-				child.parentElement?.removeChild(child);
+			const next = getNextNodeSibling(this);
+			const modelArray = this.list.get();
+			const firstView = model2View.get(modelArray[0])!;
+			if (!firstView.parentNode) {
+				element.insertBefore(firstView, next);
+			}
+			for (let i = 0; i < modelArray.length - 1; i++) {
+				const node = model2View.get(modelArray[i])!;
+				const expected = model2View.get(modelArray[i + 1])!;
+				const actual = node?.nextSibling;
+				if (expected !== actual) {
+					element.insertBefore(expected, actual);
+				}
 			}
 
-			const next = getNextNodeSibling(this);
-			for (const model of this.list.get()) {
-				element.insertBefore(model2View.get(model)!, next);
-			}
 			this.firstNode = model2View.get(this.list.get()[0]) ?? null;
 		};
 
