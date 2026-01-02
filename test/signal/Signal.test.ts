@@ -83,14 +83,14 @@ describe(useState, () => {
 		assert.deepEqual(log, ["0"]);
 		value1.set(-1);
 		assert.deepEqual(log, ["0", "-1"]);
-		value2.set(2);
+		value2.set(2); // `computed` doesn't change
 		assert.deepEqual(log, ["0", "-1"]);
 
 		flag.set(false);
 		assert.deepEqual(log, ["0", "-1", "2"]);
 		value2.set(3);
 		assert.deepEqual(log, ["0", "-1", "2", "3"]);
-		value1.set(0);
+		value1.set(0); // `computed` doesn't change
 		assert.deepEqual(log, ["0", "-1", "2", "3"]);
 	});
 });
