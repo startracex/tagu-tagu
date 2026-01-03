@@ -55,6 +55,10 @@ describe(For, () => {
 	it("Head <-> Tail", () => {
 		testFor([1, 2, 3, 4, 5], [5, 2, 3, 4, 1]);
 	});
+
+	it("Empty", () => {
+		testFor([1, 2, 3, 4, 5], []);
+	});
 });
 
 function testFor<T>(initial: T[], modified: T[]) {
