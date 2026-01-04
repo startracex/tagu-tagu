@@ -227,7 +227,7 @@ $(document.body, {
 });
 
 ```
-[JSFiddle](https://jsfiddle.net/do_the_simplest/o87nw6zL/15/)
+[JSFiddle](https://jsfiddle.net/do_the_simplest/o87nw6zL/18/)
 
 
 #### `$` initializer
