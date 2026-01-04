@@ -1,5 +1,5 @@
 import { assert, describe, it } from "vitest";
-import { $, button, Modify, ModifyAll, option, select } from "../src";
+import { $, $$, button, Modify, ModifyAll, option, select } from "../src";
 
 describe(Modify, () => {
 	it("text", () => {
@@ -22,7 +22,7 @@ describe(Modify, () => {
 describe(ModifyAll, () => {
 	it("text", () => {
 		$(document.body, { html: "" }, [button(), button(), button()]);
-		ModifyAll("button", { text: "my-button" });
+		$$("button", { text: "my-button" });
 		assert.deepEqual(
 			[...document.body.children].map((b) => b.textContent),
 			["my-button", "my-button", "my-button"],
