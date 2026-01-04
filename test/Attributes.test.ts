@@ -15,8 +15,7 @@ describe("initializeAttributes (coercion & signals)", () => {
 		expect(el.getAttribute("data-zero")).toBe("0");
 		expect(el.getAttribute("data-false")).toBe("false");
 		expect(el.getAttribute("data-str-zero")).toBe("0");
-		// empty string should remove the attribute
-		expect(el.hasAttribute("data-empty")).toBe(false);
+		expect(el.hasAttribute("data-empty")).toBe(true);
 	});
 
 	it("updates attribute when provided a Signal that yields numbers and removes on empty string", async () => {
@@ -33,20 +32,17 @@ describe("initializeAttributes (coercion & signals)", () => {
 		await Promise.resolve();
 		expect(el.getAttribute("data-value")).toBe("42");
 
-		// set to empty string -> attribute should be removed
-		// we allow string in state to simulate removal
-		(state as any).set("");
+		state.set("");
 		await Promise.resolve();
-		expect(el.hasAttribute("data-value")).toBe(false);
+		expect(el.hasAttribute("data-value")).toBe(true);
 	});
 
 	it("Modify can remove attribute when updated to empty string", async () => {
 		const el = div({ attr: { "data-a": 1 } });
 		expect(el.getAttribute("data-a")).toBe("1");
 
-		// Update via Modify to empty string; should remove attribute
 		Modify(el, { attr: { "data-a": "" } });
 		await Promise.resolve();
-		expect(el.hasAttribute("data-a")).toBe(false);
+		expect(el.hasAttribute("data-a")).toBe(true);
 	});
 });
