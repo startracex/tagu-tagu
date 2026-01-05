@@ -304,7 +304,7 @@ $("#fertilized", {
 ```
 [JSFiddle](https://jsfiddle.net/do_the_simplest/gqe5378t/6/)
 
-or you can use `$$`
+or you can use `$$()`
 
 ```typescript
 import { $$ } from "tagu-tagu";
